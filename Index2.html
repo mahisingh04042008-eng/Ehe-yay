@@ -1,1 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Boyfriend Day 💕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7, #ffd6ff, #ffe6f2);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
+    .container { text-align: center; z-index: 2; }
+
+    /* Envelope */
+    .envelope {
+      width: 220px;
+      height: 150px;
+      background: #ff4da6;
+      position: relative;
+      margin: auto;
+      cursor: pointer;
+      border-radius: 12px;
+      animation: bounce 1.5s infinite;
+      overflow: hidden;
+      display: none;
+    }
+    .envelope:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-left: 110px solid transparent;
+      border-right: 110px solid transparent;
+      border-bottom: 75px solid #ff99cc;
+    }
+    .envelope .seal {
+      width: 55px;
+      height: 55px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 45px;
+      left: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: #ff4da6;
+      box-shadow: 0 0 15px rgba(255,0,100,0.4);
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);} }
+
+    /* Popup and cards */
+    .popup, .questions, .letter, .final, .end { display: none; font-size:1.4rem; margin-top:20px; animation:fadeInUp 0.8s ease-in-out; }
+    @keyframes fadeInUp { from{opacity:0; transform:translateY(30px) scale(0.9);} to{opacity:1; transform:translateY(0) scale(1);} }
+    .popup-card {
+      background:#fff; padding:20px 35px; border-radius:25px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.15); display:inline-block;
+      margin:15px; color:#ff4da6; font-weight:bold; font-size:1.6rem;
+      transform:scale(0.95); transition:0.3s; cursor:pointer;
+    }
+    .popup-card:hover { transform:scale(1.05); }
+
+    .btn {
+      background:#ff4da6; color:white; padding:15px 30px; border-radius:30px;
+      border:none; cursor:pointer; margin:12px; font-size:1.2rem; transition:0.3s;
+      box-shadow:0 3px 10px rgba(0,0,0,0.2);
+    }
+    .btn:hover { background:#e60073; }
+
+    /* Hearts and sparkles */
+    .heart { position:fixed; font-size:2rem; animation:float linear infinite; z-index:1; }
+    @keyframes float { from{transform:translateY(100vh) scale(0.8);opacity:1;} to{transform:translateY(-10vh) scale(1.6);opacity:0;} }
+    .sparkle { position:fixed; width:6px; height:6px; background:white; border-radius:50%; opacity:0.7; animation:twinkle 2s infinite alternate; }
+    @keyframes twinkle { from{opacity:0.2;transform:scale(0.8);} to{opacity:1;transform:scale(1.4);} }
+
+    /* Overlay for intro click */
+    #introOverlay { position:absolute; top:0; left:0; width:100%; height:100%; cursor:pointer; z-index:3; }
+
+    /* Make the intro smaller */
+    #intro .popup-card {
+      font-size: 1rem;
+      max-width: 80vw;
+      max-height: 75vh;
+      overflow-y: auto;
+      text-align: left;
+      line-height: 1.4;
+      padding: 15px 20px;
+    }
+
+    /* Letter smaller */
+    .letter p {
+      font-size: 1.2rem;
+      max-width: 90%;
+      max-height: 75vh;
+      overflow-y: auto;
+      line-height: 1.5;
+      text-align: left;
+      margin: 20px auto;
+      padding: 15px 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Step 0: Intro -->
+    <div id="intro" class="popup" style="display:block;">
+      <div id="introOverlay"></div>
+      <div class="popup-card">
+        Haaiiiii my babieeee 😘💖<br><br>
+        I have a little secret for you 🥸…<br>
+        Something cute, something silly, and something just for YOU mere budheeee!<br><br>
+        Today is a very special day yk yk … but shhh 🤫💞<br>
+        I’ve been planning this little surprise for my most handsome, cutest, and perfect Sahuuuuuu 🥰💖<br>
+        You make me laugh, smile, and feel warm and loved inside, even from miles away 🥹🩷<br>
+        So today i wanted to make you feel how special you are to me too
+        although that cannot be described in words but here i am anyways<br>
+        Are you ready for a tiny surprise ? 💌✨<br><br>
+       so nowwwww all you gotta do is ..... Click.... YESH .... CLICK anywhere to start with your surprise bhonduuuu! 💖💖
+      </div>
+    </div>
+
+    <!-- Step 1: Envelope -->
+    <div id="envelope" class="envelope">
+      <div class="seal">💖</div>
+    </div>
+
+    <!-- Step 2: Popups -->
+    <div id="popup"></div>
+
+    <!-- Step 3: Questions -->
+    <div id="questions"></div>
+
+    <!-- Step 4: Letter -->
+    <div class="letter" id="letter">
+      <p> 
+       Happy Boyfriend Dayyyyyyy !!!!!!! my love, my cutieee turu lobe, my one & only best purush! 🥰💖 
+       I still can’t believe how insanely lucky I am to have you 🫠🩷 , 
+       it honestly feels like I’m living in the sweetest dream ever! ✨
+       From the very day we met, you’ve been nothing but love, care, and pure happiness for me omgggg I lobeeee you so muchh, mere sabseee pyareeeee, cuteee, bhonduuuuiuuu! I lobe you, I lobe youuuuuu endlessly!!! 💕💞
+       You’re my comfort, my safe place, my biggest blessing frrr! I’m sooo sooo sooooo grateful to have such a genuine, kind-hearted, and unbelievably amazing man in my life. 
+       Even if we’re miles apart, you always make me feel so close to you 🫂🩷 .
+       You’re not just my mommyyyyy ! you’re my everything 😾💐 .
+       YOU'RE NOT ONLY A GREAT WIFE BUT ALSO A GREAT HOOMAN ( BANDAR ) 
+       like :- You’re gyani , funny, caring, ridiculously handsome, and just the most perfect human being I’ve ever known FRRRRRR. 
+       Honestly, you don’t have any bad qualities (okay, maybe your poor communication skills sometimes, lmao 😛) but that can be fixed with time ehe !
+       You never do/did ( never even in the past ) anything bekar or ghatiya, and you always stand by your morals ( like literally a saint , my perfect lugai ) . You’re the PERFECT guy in every possible way, and I’m sooo proud to call you mine 🥹💖 . 
+       I promise to love you more and more every single day because you deserve all the happiness, love, and cuddles in the world, mere budhe!
+       Thank you for being the sweetest, most caring, and most loving boyfriend in the entire universe , you truly are my forever 🌙💞✨ .    
+      </p>
+      <button class="btn" onclick="showFinal()">Next ➡️</button>
+    </div>
+
+    <!-- Step 5: Final -->
+    <div class="final" id="final">
+      <p>💍 Will you be my one and only, forever and ever? 💖</p>
+      <button class="btn" onclick="showEnd()">Yes, foreverrr 😘</button>
+      <button class="btn" onclick="showEnd()">Always yours 💕</button>
+      <button class="btn" onclick="showEnd()">No escape, I’m stuck with you 😏😈</button>
+    </div>
+
+    <!-- Step 6: End -->
+    <div class="end" id="end">
+      <h2>🌸 I KNEWW IT 😈🙏🏿 EHEHEHEHE once again Happy Boyfriend Day, my love 💕✨</h2>
+      <h3>Daddy lobes you endlessly 😘💖</h3>
+      <p style="margin-top:10px; font-size:1.2rem; color:#ff4da6;">
+        Thank you for being my cutest, funniest, and most loving Sahu! ♾️💖
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const intro = document.getElementById("intro");
+    const introOverlay = document.getElementById("introOverlay");
+    const envelope = document.getElementById("envelope");
+    const popup = document.getElementById("popup");
+    const questions = document.getElementById("questions");
+    const letter = document.getElementById("letter");
+    const finalStep = document.getElementById("final");
+    const end = document.getElementById("end");
+
+    const surpriseText = "Guess what today is? 🤔🎉";
+    const popupTexts = [
+      "IT'S DA BOYFRIENDS DAYYYY YAYYYYY!!!!! 😈😛",
+      "Happy Boyfriend Dayyy TO MY BOYFIEEEEE!!!! 💕",
+      "You’re the best thing ever happened to me 💐",
+      "I lobe you endlessly, Sahu meri babygorl 😚"
+    ];
+    const questionsTexts = [
+      "Do you know you’re the most perfect boyfriend ever? 🥰",
+      "Will you let me be your annoying baddie forever? 😏😛",
+      "Do you like being spoiled with my love? 😘",
+      "Can I keep you forever and ever? 💖"
+    ];
+
+    let popupIndex = 0;
+    let questionIndex = 0;
+
+    // Intro click
+    introOverlay.onclick = () => {
+      intro.style.display = "none";
+      envelope.style.display = "block";
+      createHearts();
+    };
+
+    // Envelope click
+    envelope.onclick = () => {
+      envelope.style.display = "none";
+      popup.innerHTML = `<div class="popup-card">${surpriseText}</div>`;
+      popup.style.display = "block";
+      setTimeout(showPopups, 2500);
+    };
+
+    function showPopups() {
+      if (popupIndex < popupTexts.length) {
+        popup.innerHTML = `<div class="popup-card">${popupTexts[popupIndex]}</div>`;
+        popup.style.display = "block";
+        popupIndex++;
+        setTimeout(showPopups, 2000);
+      } else {
+        popup.style.display = "none";
+        showQuestions();
+      }
+    }
+
+    function showQuestions() {
+      if (questionIndex < questionsTexts.length) {
+        questions.innerHTML = `
+          <div class="popup-card">${questionsTexts[questionIndex]}</div><br>
+          <button class="btn" onclick="nextQuestion()">Yes 💖</button>
+        `;
+        questions.style.display = "block";
+      } else {
+        questions.style.display = "none";
+        letter.style.display = "block";
+      }
+    }
+
+    function nextQuestion() {
+      questionIndex++;
+      showQuestions();
+    }
+
+    function showFinal() {
+      letter.style.display = "none";
+      finalStep.style.display = "block";
+    }
+
+    function showEnd() {
+      finalStep.style.display = "none";
+      end.style.display = "block";
+      createHearts();
+      createSparkles();
+    }
+
+    function createHearts() {
+      const colors = ["💖","😋","😘","💕"];
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 2 + 2) + "rem";
+        heart.style.animationDuration = (Math.random() * 5 + 3) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 7000);
+      }, 150);
+    }
+
+    function createSparkles() {
+      setInterval(() => {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.top = Math.random() * 100 + "vh";
+        sparkle.style.animationDuration = (Math.random() * 2 + 1) + "s";
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 4000);
+      }, 300);
+    }
+  </script>
+</body>
+  </html>
